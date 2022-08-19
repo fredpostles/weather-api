@@ -1,0 +1,145 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(./assets/fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+body {
+  text-align: center;
+  font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* font weights */
+h1 {
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+p {
+  font-weight: 300;
+}
+
+small {
+  font-size: 0.8rem;
+}
+
+img {
+  height: 5rem;
+  width: auto;
+}
+
+.page-title {
+  font-size: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#snapshot > h1 {
+  text-decoration: underline;
+}
+
+.three-day-forecast.container > h1 {
+  margin: 0;
+}
+
+.forecast_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.day.one {
+  background-color: #957490;
+  width: 33.3vw;
+  height: 100%;
+  border-radius: 2.5rem;
+  padding: 2rem;
+  margin-right: 2rem;
+}
+
+.day.two {
+  background-color: #ae467a;
+  width: 33.3vw;
+  height: 100%;
+  border-radius: 2.5rem;
+  padding: 2rem;
+  margin-right: 2rem;
+}
+
+.day.three {
+  background-color: #eaa803;
+  width: 33.3vw;
+  height: 100%;
+  border-radius: 2.5rem;
+  padding: 2rem;
+}
+
+.snapshot_container {
+  border: 2px solid black;
+  border-radius: 5rem;
+  padding: 2rem;
+  margin: 0 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.snapshot_container > h1 {
+  text-align: center;
+}
+
+.snapshot_container > h2,
+h3,
+p {
+  text-align: left;
+}
+
+.snapshot_container > img {
+  height: 12.5rem;
+  margin: 0 auto 2rem;
+}
+
+label.location_input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: right;
+  width: 80rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+input {
+  height: 2.5rem;
+  flex: 0 0 20rem;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.5s ease-in-out;
+}
+input:hover {
+  box-shadow: inset 0.1rem 0.1rem 0.1rem #957490;
+}
+
+.input_container {
+  display: inline-block;
+  height: fit-content;
+  max-width: 80%;
+  margin: 0rem 2.5rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border: 1px solid gray;
+  border-radius: 2.5rem;
+}
+
+.input_container_inner {
+  display: flex;
+  flex-direction: row;
+}
