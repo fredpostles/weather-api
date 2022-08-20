@@ -14,33 +14,55 @@
     <main>
       <div id="main_container">
         <div id="inner_container">
-          <h1 id="title" class="page-title">The Weather</h1>
+          <h1 id="title" class="page-title center">The Weather</h1>
           <div class="input_container">
-            <div class="input_container_inner">
-              <label for="location_input" class="location_input"
-                >Location search:
-                <input
-                  id="location_input"
-                  type="text"
-                  placeholder="Search by location name"
-                />
-              </label>
-            </div>
+            <label for="location_input" class="location_input"
+              >Location search:
+              <input
+                id="location_input"
+                class="location_input"
+                type="text"
+                placeholder="Search by location name"
+              />
+            </label>
             <div id="userChoices" class="userChoices"></div>
           </div>
-          <div id="snapshot" class="snapshot_container">
-            <div id="tempComparison" class="tempComparison"></div>
+          <div class="snapshot_comp_section">
+            <div class="summary_section_container">
+              <h1 id="location"></h1>
+              <div class="summary_section_inner">
+                <div id="summary" class="summmary"></div>
+                <div id="summary_forecast" class="summary_forecast"></div>
+              </div>
+            </div>
+            <div id="tempComparison" class="tempComparison_container"></div>
           </div>
           <div class="three_day_forecast_container">
-            <h1>The next few days at a glance:</h1>
+            <h1 class="section-heading">The next few days at a glance:</h1>
             <div id="forecast_container" class="forecast_container">
-              <div id="day_one" class="day one"></div>
-              <div id="day_two" class="day two"></div>
-              <div id="day_three" class="day three"></div>
+              <div id="today" class="card today today_container"></div>
+              <div id="day_one" class="card day one"></div>
+              <div id="day_two" class="card day two"></div>
+              <div id="day_three" class="card day three"></div>
             </div>
           </div>
         </div>
       </div>
     </main>
   </body>
+  <footer>
+    <p>Code: Fred Postles</p>
+    <p>
+      <a
+        href="https://www.flaticon.com/free-icons/sunrise"
+        title="sunrise icons"
+        >Sunrise icons created by Mehwish - Flaticon</a
+      >
+    </p>
+    <p>
+      <a href="https://www.flaticon.com/free-icons/sunset" title="sunset icons"
+        >Sunset icons created by Mehwish - Flaticon</a
+      >
+    </p>
+  </footer>
 </html>
