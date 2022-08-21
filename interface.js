@@ -45,6 +45,7 @@ export function createInterface(
   </div>
   </div>`;
 
+  // write to DOM
   document.getElementById("summary_forecast").innerHTML = summaryForecastHtml;
 
   // temp comparison
@@ -55,6 +56,7 @@ export function createInterface(
   tempCompHtml += `<p>${resultOfMinComparison}</p>`;
   tempCompHtml += `<p><small><sup>*</sup>Since 1970.</small></p>`;
 
+  // write to DOM
   document.getElementById("tempComparison").innerHTML = tempCompHtml;
 
   let nextFourDays = "";

@@ -1,9 +1,25 @@
 import { compareCurrentToMax, compareCurrentToMin } from "./utils.js";
 import { createInterface } from "./interface.js";
 
+// get weather for default location (London), in case user does not want to automatically allow location access
 gWD(51.5, 0.12);
+
+// get DOM reference for, and add event listener to, button that triggers navigator.geolocation
 const getLocationButton = document.getElementById("getLocation");
 getLocationButton.addEventListener("click", getLocation);
+
+// get DOM reference for location input box and add "input" event listener
+const locationInput = document.getElementById("location_input");
+locationInput.addEventListener("input", getCoordsFromName);
+
+// get DOM reference for place where location options will be inserted
+const userChoices = document.getElementById("userChoices");
+
+// define variable to be used in 'getCoordsFromName' below
+let latsLongs;
+
+// get DOM reference for input container, so that height can be modified to accomodate user choices (location options)
+const inputContainer = document.getElementById("input_container");
 
 // get location coords
 function getLocation() {
@@ -11,7 +27,6 @@ function getLocation() {
     (location) => {
       // send location coords to function which gets weather data
       gWD(location.coords.latitude, location.coords.longitude);
-      // remove location button
     },
     (error) => {
       console.log(error);
@@ -48,27 +63,22 @@ async function gWD(latitude, longitude) {
   }
 }
 
-document
-  .getElementById("location_input")
-  .addEventListener("input", getCoordsFromName);
-
-let latsLongs;
-
-let inputContainer = document.getElementById("input_container");
-
+// get latitude and longitude coordinates from user input
 async function getCoordsFromName(e) {
   if (e.target.value.length) {
     latsLongs = await axios.get(
       `http://api.openweathermap.org/geo/1.0/direct?q=${e.target.value}&limit=10&appid=9e935cc2d4512c9d406b475894374293`
     );
+    // make input container bigger to accommodate location names on user input
     inputContainer.style.height = "20rem";
+    // call function that returns location names based on user input
     getUserChoice(latsLongs.data);
   } else {
     userChoices.innerHTML = "";
   }
 }
-const userChoices = document.getElementById("userChoices");
 
+// call function that gets weather data once user clicks on a choice
 const onUserChoice = (e) => {
   gWD(
     latsLongs.data[Number(e.target.id)].lat,
@@ -80,6 +90,7 @@ const onUserChoice = (e) => {
 
 userChoices.addEventListener("click", onUserChoice);
 
+// get location names from user input
 function getUserChoice(latsLongs) {
   const html = latsLongs.map((latLon, index) => {
     let result = "";
