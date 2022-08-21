@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Weather</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="generics.css" />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/axios@0.25.0/dist/axios.min.js"></script>
@@ -12,35 +12,72 @@
   </head>
   <body>
     <main>
-      <div id="main_container">
         <div id="inner_container">
-          <h1 id="title" class="page-title">The Weather</h1>
-          <div class="input_container">
-            <div class="input_container_inner">
+          <h1 id="title" class="page-title center">The Weather</h1>
+          <div id="input_container" class="input_container">
+            <form class="location_search">
               <label for="location_input" class="location_input"
                 >Location search:
                 <input
                   id="location_input"
+                  class="location_input"
                   type="text"
                   placeholder="Search by location name"
                 />
               </label>
-            </div>
-            <div id="userChoices" class="userChoices"></div>
+              <button id="getLocation" class="location_btn"><img src="./assets/placeholder.svg" alt="Location icon" title="Find my location"/></button>
+              <div id="userChoices" class="userChoices"></div>
+            </form>
           </div>
-          <div id="snapshot" class="snapshot_container">
-            <div id="tempComparison" class="tempComparison"></div>
-          </div>
-          <div class="three_day_forecast_container">
-            <h1>The next few days at a glance:</h1>
-            <div id="forecast_container" class="forecast_container">
-              <div id="day_one" class="day one"></div>
-              <div id="day_two" class="day two"></div>
-              <div id="day_three" class="day three"></div>
+          <div class="snapshot_comp_section">
+            <div class="summary_section_container">
+              <h1 id="location"></h1>
+              <div class="summary_section_inner">
+                <div id="summary" class="summmary"></div>
+                <div id="summary_forecast" class="summary_forecast"></div>
+              </div>
             </div>
+            <div id="tempComparison" class="tempComparison_container"></div>
+          </div>
+          <div class="four_day_forecast_container">
+            <h2 class="section-heading">The next few days at a glance:</h2>
+            <div id="nextFourDays" class="forecast_container"></div>
+          </div>
+          <div id="two_week_forecast" class="two_weeks_container">
+            <h1>14 Day Forecast</h1>
+            <div id="fourteen_day" class="two_weeks_container_inner"></div>
           </div>
         </div>
-      </div>
     </main>
   </body>
+  <footer>
+    <p>Code: Fred Postles</p>
+    <p>
+      Icons:
+        <ul class="credit">
+          <li> <a href="https://github.com/visualcrossing/WeatherIcons" title="GitHub Repo">Weather Icons by Visual Crossing</a></li>
+          <li>
+            <a
+              href="https://www.flaticon.com/free-icons/location"
+              title="location icons"
+              >Location icons created by Freepik - Flaticon</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.flaticon.com/free-icons/sunrise"
+              title="sunrise icons"
+              >Sunrise icons created by Mehwish - Flaticon</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.flaticon.com/free-icons/sunset"
+              title="sunset icons"
+              >Sunset icons created by Mehwish - Flaticon</a
+            >
+          </li>
+        </ul>
+    </p>
+  </footer>
 </html>
