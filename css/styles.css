@@ -1,6 +1,7 @@
 @font-face {
-  font-family: "Montserrat";
-  src: url(./assets/fonts/Montserrat-VariableFont_wght.ttf);
+  font-family: "Quicksand";
+  src: url(../assets/fonts/Quicksand-VariableFont_wght.ttf);
+  font-display: swap;
 }
 
 :root {
@@ -16,11 +17,39 @@ body {
 }
 
 body {
-  font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Quicksand", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* font-size: clamp(1rem, 1.5rem, 4rem); */
 }
 
 main {
-  background: linear-gradient(#a6e4ff, #1763d5);
+  background-color: #063d8f;
+}
+
+.inner_container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+/* Mapbox gl */
+.map__container {
+  height: 25rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+#map {
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  border-radius: 1.5rem;
+}
+
+.mapboxgl-ctrl-bottom-left,
+.mapboxgl-ctrl-bottom-right {
+  display: none;
 }
 
 /* font weights */
@@ -49,7 +78,7 @@ p {
 }
 
 small {
-  font-size: 1rem;
+  font-size: 0.6rem;
 }
 
 .bold {
@@ -66,30 +95,33 @@ img {
 }
 
 .page-title {
+  color: #fff;
   font-size: 4rem;
-  padding-top: 2rem;
-  text-decoration: underline;
+  padding-top: 1.5rem;
+  text-transform: uppercase;
 }
 
 .section-heading {
-  padding: 2rem 0 0 2.5rem;
-  text-decoration: underline;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  color: #fff;
 }
 
 .sub-heading {
   margin-bottom: 1rem;
-  text-decoration: underline;
 }
 
-.location_search {
+.location_search_form {
   min-width: fit-content;
 }
 
 .input_container {
   height: fit-content;
   width: fit-content;
+  text-align: center;
   max-width: 100%;
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   padding: 1.5rem;
   border: 0.1rem outset #fff;
   border-radius: 1rem;
@@ -138,10 +170,11 @@ input.location_input {
 
 .summary_section_container {
   border-radius: 1rem;
+  background-color: #a6e4ff;
+  box-shadow: 0 0 1.5rem black;
   padding: 2rem;
   margin-bottom: 1.5rem;
-  font-size: 1.4rem;
-  background-color: #fff;
+  /* font-size: 1.4rem; */
   height: fit-content;
 }
 
@@ -155,12 +188,6 @@ input.location_input {
 .summary_section_inner img {
   height: 10rem;
   margin: 0 auto 2rem auto;
-}
-
-.summary_section_container > h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  text-decoration: underline;
 }
 
 .summary_forecast {
@@ -196,11 +223,11 @@ input.location_input {
 }
 
 .tempComparison_container {
-  border: 0.2rem outset #fff;
   border-radius: 1rem;
   padding: 2rem;
   line-height: 1.5;
-  background-color: #fff;
+  background-color: #a6e4ff;
+  box-shadow: 0 0 1.5rem black;
   height: fit-content;
 }
 
@@ -212,19 +239,15 @@ input.location_input {
 
 .four_day_forecast_container {
   margin: 1.5rem 2rem;
-  background-color: #d2e8ff;
+  padding: 2rem;
   border-radius: 1rem;
 }
 
-.four_day_forecast_container > h1 {
-  margin: 0;
-}
-
 .forecast_container {
-  padding: 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1rem;
   margin: auto;
-  width: fit-content;
-  text-align: center;
 }
 
 .day p {
@@ -234,7 +257,7 @@ input.location_input {
 
 .card.day {
   background: #fff;
-  display: inline-block;
+  display: inline;
   width: fit-content;
   min-width: 25rem;
   height: fit-content;
@@ -242,15 +265,16 @@ input.location_input {
   border: 0.2rem outset #fff;
   border-radius: 1rem;
   padding: 1rem;
-  margin-bottom: 2rem;
-  margin-right: 1rem;
+  margin: auto;
+  /* margin-bottom: 2rem;
+  margin-right: 1rem; */
   text-align: center;
 }
 
 .two_weeks_container {
-  background-color: #a6e4ff;
+  /* background-color: #a6e4ff; */
   border-radius: 1rem;
-  padding: 2.5rem;
+  padding: 2rem;
   margin: 0 2rem 0 2rem;
 }
 
@@ -260,14 +284,17 @@ input.location_input {
 
 .two_weeks_container_inner {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
 }
 
 .two_weeks.day {
   display: inline-block;
-  border-right: 1px solid gray;
   padding: 1.5rem;
   text-align: center;
+  background-color: #a6e4ff;
+  border-radius: 5%;
+  filter: drop-shadow(0.25rem 0.25rem 0.5rem black);
 }
 
 .two_weeks.day:nth-child(4),
@@ -277,21 +304,27 @@ input.location_input {
 }
 
 .two_weeks img {
-  margin-bottom: 1rem;
+  margin: 1.5rem 0;
 }
 
 footer {
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(#1763d5, #a6e4ff);
+  background-color: #063d8f;
 }
 
 footer p {
   margin-bottom: 1rem;
+  color: #fff;
+}
+
+ul.credit {
+  display: flex;
+  justify-content: space-around;
 }
 
 ul.credit li {
-  font-size: 1rem;
+  font-size: 0.6rem;
   text-decoration: underline;
 }
 
@@ -315,7 +348,7 @@ ul.credit li {
     padding: 0.25rem;
   }
   .snapshot_comp_section {
-    display: flex;
+    /* display: flex; */
     margin: 0 2rem;
   }
 
@@ -323,29 +356,28 @@ ul.credit li {
     margin-right: 1.5rem;
   }
 
-  .forecast_container {
+  /* .forecast_container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1rem;
   }
 
   .card.day {
     margin: 0;
-  }
+  } */
 }
 
 @media screen and (min-width: 800px) {
-  .four_day_forecast_container {
+  /* .four_day_forecast_container {
     max-width: fit-content;
-  }
+  } */
 
-  .forecast_container {
-    display: flex;
-    flex-direction: row;
+  /* .forecast_container {
+    display: grid;
     margin: 0 auto;
-  }
+  } */
 
-  .card h1 {
+  /* .card h1 {
     font-size: 1.8rem;
   }
   .card h2 {
@@ -354,16 +386,17 @@ ul.credit li {
 
   .card p {
     font-size: 1.4rem;
-  }
+  } */
 
   .card img {
     margin-bottom: 1.5rem;
   }
+
   .card.day {
-    width: 25%;
-    min-width: 0;
+    width: 300px;
+    min-width: fit-content;
     margin-bottom: 0;
-    margin-right: 1rem;
+    padding: 0.5rem;
   }
 }
 
@@ -373,6 +406,6 @@ ul.credit li {
   }
 
   .four_day_forecast_container {
-    margin: 2rem auto;
+    margin: 2rem;
   }
 }

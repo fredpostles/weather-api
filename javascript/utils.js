@@ -1,7 +1,7 @@
 export function compareCurrentToMax(data) {
   // defining variables to be used in comparison
   const maxTemp = data.days[0].normal.tempmax[2];
-  const currentTemp = data.days[0].temp;
+  const currentTemp = data.currentConditions.temp;
 
   // create box for result of comparison to go into
   let resultOfMaxComparison = "";
@@ -31,7 +31,7 @@ export function compareCurrentToMax(data) {
 export function compareCurrentToMin(data) {
   // defining variables to be used in comparison
   const minTemp = data.days[0].normal.tempmin[0];
-  const currentTemp = data.days[0].temp;
+  const currentTemp = data.currentConditions.temp;
 
   // create box for result of comparison to go into
   let resultOfMinComparison = "";
@@ -57,3 +57,31 @@ export function compareCurrentToMin(data) {
   // return result of the comparison
   return resultOfMinComparison;
 }
+
+// array of weekdays, to convert datetime to day of week
+export const weekday = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+// add date in format '22nd'
+export const getDay = (day) => {
+  if (day > 3 && day < 21) {
+    return day + "th";
+  }
+  switch (day % 10) {
+    case 1:
+      return day + "st";
+    case 2:
+      return day + "nd";
+    case 3:
+      return day + "rd";
+    default:
+      return day + "th";
+  }
+};
