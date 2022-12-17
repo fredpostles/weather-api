@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Global weather search and forecast" />
+    <meta name="keywords" content="Weather, global weather, forecast" />
+    <meta name="author" content="Fred Postles" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather</title>
+    <title>The Weather</title>
+    <link rel="icon" href="./assets/favicon.ico" />
     <!-- Reset CSS styles -->
     <link rel="stylesheet" href="./css/generics.css" />
     <!-- My CSS styling -->
@@ -28,48 +32,47 @@
   </head>
   <body>
     <main>
-      <div id="inner_container">
+      <div id="inner_container" class="inner_container">
         <h1 id="title" class="page-title center">The Weather</h1>
         <div id="input_container" class="input_container">
           <form id="location_search_form" class="location_search_form">
             <label for="location_input" class="location_input"
-              >Enter a location or click on the map:
-              <input
+              ><input
                 id="location_input"
                 class="location_input"
                 type="text"
-                placeholder="Search by location name"
+                placeholder="Search locations or use the map"
               />
+              <button id="getLocation" class="location_btn" type="button">
+                <img
+                  src="./assets/placeholder.png"
+                  alt="Location icon"
+                  title="Find my location"
+                />
+              </button>
             </label>
-            <button id="getLocation" class="location_btn" type="button">
-              <img
-                src="./assets/placeholder.svg"
-                alt="Location icon"
-                title="Find my location"
-              />
-            </button>
-            <div id="userChoices" class="userChoices"></div>
           </form>
+          <div id="userChoices" class="userChoices"></div>
         </div>
-        <div class="map__container">
+        <div class="map_container">
           <div id="map" name="map"></div>
         </div>
+        <h1 class="section-heading">Current Weather</h1>
         <div class="snapshot_comp_section">
           <div class="summary_section_container">
             <h1 id="location" class="center sub-heading"></h1>
             <div class="summary_section_inner">
-              <div id="summary" class="summmary"></div>
-              <div id="summary_forecast" class="summary_forecast"></div>
+              <div id="summary" class="summary"></div>
+              <div id="tempComparison" class="tempComparison_container"></div>
             </div>
           </div>
-          <div id="tempComparison" class="tempComparison_container"></div>
         </div>
         <div class="four_day_forecast_container">
-          <h1 class="section-heading">The next few days at a glance</h1>
+          <h1 class="section-heading">The next few days</h1>
           <div id="nextFourDays" class="forecast_container"></div>
         </div>
         <div id="two_week_forecast" class="two_weeks_container">
-          <h1 class="section-heading">Next two weeks</h1>
+          <h1 class="section-heading">The next two weeks</h1>
           <div id="fourteen_day" class="two_weeks_container_inner"></div>
         </div>
       </div>
@@ -87,10 +90,27 @@
         >
       </li>
       <li>
+        <a href="https://www.flaticon.com/free-icons/app" title="app icons"
+          >App icons created by Freepik - Flaticon</a
+        >
+      </li>
+      <li>
         <a
           href="https://www.flaticon.com/free-icons/location"
           title="location icons"
-          >Location icons created by Freepik - Flaticon</a
+          >Location icons created by Smashicons - Flaticon</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.flaticon.com/free-icons/humidity"
+          title="humidity icons"
+          >Humidity icons created by Pixel perfect - Flaticon</a
+        >
+      </li>
+      <li>
+        <a href="https://www.flaticon.com/free-icons/wind" title="wind icons"
+          >Wind icons created by Freepik - Flaticon</a
         >
       </li>
       <li>

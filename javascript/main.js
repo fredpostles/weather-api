@@ -23,7 +23,8 @@ const locationSearchForm = document.getElementById("location_search_form");
 const locationInput = document.getElementById("location_input");
 locationInput.addEventListener("input", getCoordsFromName);
 
-// get DOM reference for place where location options will be inserted
+// get DOM reference for place where location options will be inserted and its container
+const userChoicesContainer = document.getElementById("userChoicesContainer");
 const userChoices = document.getElementById("userChoices");
 
 // get DOM reference for input container, so that height can be modified to accomodate user choices (location options)
@@ -111,16 +112,23 @@ async function gWD(latitude, longitude) {
 
 // get latitude and longitude coordinates from user input
 async function getCoordsFromName(e) {
-  if (e.target.value.length) {
-    latsLongs = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${e.target.value}&limit=10&appid=9e935cc2d4512c9d406b475894374293`
-    );
-    // make input container bigger to accommodate location names on user input
-    inputContainer.style.height = "fit-content";
-    // call function that returns location names based on user input
-    getUserChoice(latsLongs.data);
-  } else {
-    userChoices.innerHTML = "";
+  try {
+    if (e.target.value.length) {
+      latsLongs = await axios.get(
+        `http://api.openweathermap.org/geo/1.0/direct?q=${e.target.value}&limit=10&appid=9e935cc2d4512c9d406b475894374293`
+      );
+      // make input container bigger to accommodate location names on user input
+      inputContainer.style.height = "fit-content";
+      userChoices.style.display = "initial";
+      // call function that returns location names based on user input
+      getUserChoice(latsLongs.data);
+    } else {
+      userChoices.innerHTML = "";
+      userChoices.style.display = "none";
+      inputContainer.style.height = "initial";
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 
@@ -131,7 +139,7 @@ function getUserChoice(latsLongs) {
     result += latLon.name ? latLon.name + ", " : "";
     result += latLon.state ? latLon.state + ", " : "";
     result += latLon.country ? latLon.country : "";
-    return `<ul><li class="userChoice" id="${index}">${result}</li></ul>`;
+    return `<p class="userChoice" id="${index}">${result}</p>`;
   });
   userChoices.innerHTML = html.join("");
 }
