@@ -26,14 +26,14 @@ export function createInterface(
   let summaryHtml = `<h2 class="current_conditions">${
     currentConds.conditions
   }</h2>
-                    <img src="./assets/weather-icons/${
+                    <img src="./assets/weather-icons/visual-crossing-weather-icons/${
                       currentConds.icon
                     }.svg" alt="${currentConds.icon}" title="${
     currentConds.icon
   }" class="icon_large">
                     <div class="sunTimes_temp_container">
                       <div id="sunrise" class="sunrise">
-                        <img src="./assets/sunrise.svg" alt="Sunrise icon" title="Sunrise icon" class="icon_small"/>
+                        <img src="./assets/weather-icons/sunrise.svg" alt="Sunrise icon" title="Sunrise icon" class="icon_small"/>
                         <p><span class="bold">${currentConds.sunrise.substr(
                           0,
                           5
@@ -49,7 +49,7 @@ export function createInterface(
                       }&deg;C</span></p>
                       </div></div>
                       <div id="sunset" class="sunset">
-                      <img src="./assets/sunset.svg" alt="Sunset icon" title="Sunset icon" class="icon_small"/>
+                      <img src="./assets/weather-icons/sunset.svg" alt="Sunset icon" title="Sunset icon" class="icon_small"/>
                       <p><span class="bold">${currentConds.sunset.substr(
                         0,
                         5
@@ -58,19 +58,19 @@ export function createInterface(
                     </div>
                     <div class="conditions">
                       <div class="precipitation_chance" title="Chance of rain">
-                        <img src="./assets/weather-icons/rain.svg" alt="Rain icon" class="icon_small"/>
+                        <img src="./assets/weather-icons/visual-crossing-weather-icons/rain.svg" alt="Rain icon" class="icon_small"/>
                         <p><span class="bold">${
                           currentConds.precipprob
                         }%</span></p>
                       </div>
                       <div class="humidity">
-                        <img src="./assets/humidity.png" alt="Humidity icon" title="Humidity icon" class="icon_small"/>
+                        <img src="./assets/weather-icons/humidity.png" alt="Humidity icon" title="Humidity icon" class="icon_small"/>
                         <p><span class="bold">${
                           currentConds.humidity
                         }%</span></p>
                       </div>
                       <div class="wind">
-                        <img src="./assets/wind.png" alt="Wind icon" title="Wind icon" class="icon_small"/>
+                        <img src="./assets/weather-icons/wind.png" alt="Wind icon" title="Wind icon" class="icon_small"/>
                         <p><span class="bold">${
                           currentConds.windspeed
                         }kph</span></p>
@@ -101,7 +101,7 @@ export function createInterface(
   data.days.slice(1, 5).forEach((day) => {
     // console.log("Day:", day, "Current conditions", currentConds);
     let fourDaysHtml = `<h2>${weekday[new Date(day.datetime).getDay()]}</h2>
-                        <img src="./assets/weather-icons/${
+                        <img src="./assets/weather-icons/visual-crossing-weather-icons/${
                           day.icon
                         }.svg" alt="${day.icon}" title="${
       day.icon
@@ -120,15 +120,15 @@ export function createInterface(
                         </div>
                         <div class="conditions">
                           <div class="precipitation_chance" title="Chance of rain">
-                            <img src="./assets/weather-icons/rain.svg" alt="rain" class="icon_small"/>
+                            <img src="./assets/weather-icons/visual-crossing-weather-icons/rain.svg" alt="rain" class="icon_small"/>
                             <p><span class="bold">${day.precipprob}%</span></p>
                           </div>
                           <div class="humidity">
-                            <img src="./assets/humidity.png" alt="Humidity icon" title="Humidity" class="icon_small"/>
+                            <img src="./assets/weather-icons/humidity.png" alt="Humidity icon" title="Humidity" class="icon_small"/>
                             <p><span class="bold">${day.humidity}%</span></p>
                           </div>
                           <div class="wind">
-                            <img src="./assets/wind.png" alt="Wind icon" title="Wind" class="icon_small"/>
+                            <img src="./assets/weather-icons/wind.png" alt="Wind icon" title="Wind" class="icon_small"/>
                             <p><span class="bold">${day.windspeed}kph</span></p>
                           </div>
                         </div>`;
@@ -146,7 +146,7 @@ export function createInterface(
     let dayHtml = `<h2>${getDay(
       new Date(day.datetimeEpoch * 1000).getDate()
     )}</h2>`;
-    dayHtml += `<img src="./assets/weather-icons/${day.icon}.svg" alt="${day.icon}" title="${day.icon} icon">
+    dayHtml += `<img src="./assets/weather-icons/visual-crossing-weather-icons/${day.icon}.svg" alt="${day.icon}" title="${day.icon} icon">
     <div class="temp"><div class="maxTemp bold">${day.tempmax}&deg;C</div><div class="minTemp">${day.tempmin}&deg;C</div></div>`;
     result += `<div class="two_weeks day">${dayHtml}</div>`;
   });

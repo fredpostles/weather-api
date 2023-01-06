@@ -13,22 +13,31 @@
     <link rel="stylesheet" href="./css/generics.css" />
     <!-- My CSS styling -->
     <link rel="stylesheet" href="./css/styles.css" />
+    <!-- Preconnect to these required services -->
+    <link rel="Preconnect" href="https://weather.visualcrossing.com/" />
+    <link rel="Preconnect" href="https://api.openweathermap.org/" />
+    <link rel="Preconnect" href="https://events.mapbox.com" />
+    <link rel="Preconnect" href="https://api.mapbox.com" />
     <!-- Axios -->
-    <script src="https://unpkg.com/axios@0.25.0/dist/axios.min.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/axios@0.25.0/dist/axios.min.js"
+    ></script>
     <!-- Mapbox -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css"
       rel="stylesheet"
     />
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
-      type="text/css"
-    />
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"
+    ></script>
     <!-- My JS -->
-    <script async defer type="module" src="./javascript/main.js"></script>
+    <script defer type="module" src="./javascript/main.js"></script>
   </head>
   <body>
     <main>
@@ -42,10 +51,26 @@
                 class="location_input"
                 type="text"
                 placeholder="Search locations or use the map"
-              />
-              <button id="getLocation" class="location_btn" type="button">
+              /><button
+                class="icon_container"
+                type="submit"
+                title="Search button"
+                id="searchButton"
+              >
                 <img
-                  src="./assets/placeholder.png"
+                  src="./assets/other-icons/search.png"
+                  alt="Search icon"
+                  title="Search icon"
+                  class="search_icon"
+                /></button
+              ><button
+                id="getLocation"
+                class="location_btn"
+                type="button"
+                title="Get my location"
+              >
+                <img
+                  src="./assets/weather-icons/placeholder.png"
                   alt="Location icon"
                   title="Find my location"
                 />
@@ -56,6 +81,7 @@
         </div>
         <div class="map_container">
           <div id="map" name="map"></div>
+          <div id="static" name="Placeholder map image"></div>
         </div>
         <h1 class="section-heading">Current Weather</h1>
         <div class="snapshot_comp_section">
@@ -92,6 +118,11 @@
       <li>
         <a href="https://www.flaticon.com/free-icons/app" title="app icons"
           >App icons created by Freepik - Flaticon</a
+        >
+      </li>
+      <li>
+        <a href="https://www.flaticon.com/free-icons/loupe" title="loupe icons"
+          >Loupe icons created by Fuzzee - Flaticon</a
         >
       </li>
       <li>

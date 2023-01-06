@@ -23,8 +23,10 @@ const locationSearchForm = document.getElementById("location_search_form");
 const locationInput = document.getElementById("location_input");
 locationInput.addEventListener("input", getCoordsFromName);
 
+// get DOM reference for location search button
+const locationSearchButton = document.getElementById("searchButton");
+
 // get DOM reference for place where location options will be inserted and its container
-const userChoicesContainer = document.getElementById("userChoicesContainer");
 const userChoices = document.getElementById("userChoices");
 
 // get DOM reference for input container, so that height can be modified to accomodate user choices (location options)
@@ -50,6 +52,12 @@ const createMap = (longitude, latitude) => {
     console.log(`A click event has occurred at ${e.lngLat}`);
     gWD(e.lngLat.lat, e.lngLat.lng);
     setMarker(map, e.lngLat.lng, e.lngLat.lat);
+  });
+
+  // swap static image for map once it has loaded
+  map.on("load", () => {
+    const mapContainerEl = document.getElementById("map");
+    mapContainerEl.style.visibility = "visible";
   });
 
   // set the marker to show the input/chosen location
@@ -155,13 +163,17 @@ function onUserChoice(e) {
 
 userChoices.addEventListener("click", onUserChoice);
 
+function returnFirstResult() {
+  gWD(latsLongs.data[0].lat, latsLongs.data[0].lon);
+  createMap(latsLongs.data[0].lon, latsLongs.data[0].lat);
+}
+
 // if user presses enter after typing search term, select first result by default
 function onEnter(e) {
+  console.log(e);
   try {
     if (e.key === "Enter") {
-      gWD(latsLongs.data[0].lat, latsLongs.data[0].lon);
-      createMap(latsLongs.data[0].lon, latsLongs.data[0].lat);
-      userChoices.innerHTML = "";
+      returnFirstResult();
     }
   } catch (error) {
     console.log(error);
@@ -170,6 +182,10 @@ function onEnter(e) {
 
 locationInput.addEventListener("keyup", onEnter);
 
-locationSearchForm.addEventListener("submit", (e) => {
+function onSearch(e) {
   e.preventDefault();
-});
+  returnFirstResult();
+  userChoices.innerHTML = "";
+}
+
+locationSearchForm.addEventListener("submit", onSearch);
