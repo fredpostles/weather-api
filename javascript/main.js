@@ -123,7 +123,7 @@ async function getCoordsFromName(e) {
   try {
     if (e.target.value.length) {
       latsLongs = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${e.target.value}&limit=10&appid=9e935cc2d4512c9d406b475894374293`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${e.target.value}&limit=10&appid=9e935cc2d4512c9d406b475894374293`
       );
       // make input container bigger to accommodate location names on user input
       inputContainer.style.height = "fit-content";
